@@ -10,9 +10,14 @@ The code obviously needs improvement, from the standpoint of myself today.
 
 *At least, it is one of the first projects I did and I felt great about it.*
 
--- press Arrow Keys to move your craft
--- press Space to shoot
+### Basic
+* press Arrow Keys to move your craft
+* press Space to shoot
 
--- the red enemy is most vulnarable (1 hit), but fastest
--- the green enemy is medium (2 hits), medium speed
--- the orange enemy is strongest (3 hits), but slowest
+### Enemies
+* the red enemy is most vulnarable (1 hit), but fastest  
+* the green enemy is medium (2 hits), medium speed  
+* the orange enemy is strongest (3 hits), but slowest  
+
+Also it's at
+http://zkytony.com/codings/Java/SpaceShooting/SpaceShooting.zip
