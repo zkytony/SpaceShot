@@ -8,7 +8,7 @@ So I self studied some tutorials At that time it was the first year that I serio
 to learn programming. I learnt these before I took my first Computer Science class at the UW  
 The code obviously needs improvement, from the standpoint of myself today.  
 
-* At least, it is one of the first projects I did and I felt great about it. *
+*At least, it is one of the first projects I did and I felt great about it.*
 
 -- press Arrow Keys to move your craft
 -- press Space to shoot
