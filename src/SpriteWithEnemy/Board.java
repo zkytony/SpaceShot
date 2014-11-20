@@ -20,6 +20,10 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
 
+	private static final int ENEMY_ONE = 15;
+	private static final int ENEMY_TWO = 5;
+	private static final int ENEMY_THREE = 10;
+	
     private Timer timer;
     private Craft craft;
     private int width = 800;
@@ -27,20 +31,18 @@ public class Board extends JPanel implements ActionListener {
     private ArrayList<Missle> msl = new ArrayList<Missle>();
     private ArrayList<EnemyMissile> emsl = new ArrayList<EnemyMissile>();
     private boolean ingame;
-    private int num1 = 15;
-    private int num2 = 5;
-    private int num3 = 10;
-    //to cumulate the time being hit;
+    
+    //to accumulate the time being hit;
     //Most tricky place. Have to use the array to keep 
     //track of the number of hits of each flying
-    int[] cum = new int[num1 + num2 + num3];
+    int[] cum = new int[ENEMY_ONE + ENEMY_TWO + ENEMY_THREE];
     //These are initial positions of alien ships.
-    private int[] startY1 = new int[num1];
-    private int[] startX1 = new int[num1];
-    private int[] startY2 = new int[num2];
-    private int[] startX2 = new int[num2];
-    private int[] startY3 = new int[num3];
-    private int[] startX3 = new int[num3];
+    private int[] startY1 = new int[ENEMY_ONE];
+    private int[] startX1 = new int[ENEMY_ONE];
+    private int[] startY2 = new int[ENEMY_TWO];
+    private int[] startX2 = new int[ENEMY_TWO];
+    private int[] startY3 = new int[ENEMY_THREE];
+    private int[] startX3 = new int[ENEMY_THREE];
     
     private ArrayList<Enemy> enemy = new ArrayList<Enemy>();
     
@@ -52,17 +54,17 @@ public class Board extends JPanel implements ActionListener {
         setDoubleBuffered(true);
         ingame = true;
 
-        for (int i = 0; i < num1; i++) {
+        for (int i = 0; i < ENEMY_ONE; i++) {
     		startY1[i] = randomInt(10, 600);
     		startX1[i] = randomInt(1500, 2500);
     	}
         
-        for (int i = 0; i < num2; i++) {
+        for (int i = 0; i < ENEMY_TWO; i++) {
     		startY2[i] = randomInt(10, 600);
     		startX2[i] = randomInt(1500, 2500);
     	}
         
-        for (int i = 0; i < num3; i++) {
+        for (int i = 0; i < ENEMY_THREE; i++) {
     		startY3[i] = randomInt(10, 600);
     		startX3[i] = randomInt(1500, 2500);
     	}
@@ -125,20 +127,17 @@ public class Board extends JPanel implements ActionListener {
 	            EnemyMissile em = emsl.get(i);
 	            g2d.drawImage(em.getImage(), em.getX(), em.getY(), this);
 	        }
-        }//If game is over
-        else {
-	            String msg = "Game Over";
-	            Font small = new Font("Helvetica", Font.BOLD, 14);
-	            FontMetrics metr = this.getFontMetrics(small);
+        } else { //If game is over 
+	       String msg = "Game Over";
+	       Font small = new Font("Helvetica", Font.BOLD, 14);
+	       FontMetrics metr = this.getFontMetrics(small);
+	       
+	       g.setColor(Color.white);
+	       g.setFont(small);
+	       g.drawString(msg, (width - metr.stringWidth(msg)) / 2,
+	    		   		height / 2);
+	    }
 
-	            g.setColor(Color.white);
-	            g.setFont(small);
-	            g.drawString(msg, (width - metr.stringWidth(msg)) / 2,
-	                         height / 2);
-	        }
-
-	
-	
 	        Toolkit.getDefaultToolkit().sync();
 	        g.dispose();
     }
